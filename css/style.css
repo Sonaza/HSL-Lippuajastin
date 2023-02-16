@@ -109,7 +109,7 @@ div.stage
 	width: 100%;
 	text-align: center;
 	background: #fff;
-	padding: min(4rem, max(1.5rem, 5vmax)) 1rem;
+	padding: clamp(1.5rem, 5vmax, 4rem) 1rem;
 	margin: 0.3rem 0;
 	border: 1px solid #ddd;
 	border-radius: 4px;

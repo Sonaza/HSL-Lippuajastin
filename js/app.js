@@ -262,12 +262,11 @@ app.controller('MainController', async ($rootScope, $scope, $timeout, $interval,
 			$scope.current_ticket.ticket     = ticket;
 			$scope.current_ticket.expired    = false;
 			
-			$scope.current_ticket.changing_ticket = false;
-			
 			if (!$scope.current_ticket.changing_ticket)
 			{
 				$scope.current_ticket.bought_on = $scope.current_ticket.custom_start || new Date();
 			}
+			$scope.current_ticket.changing_ticket = false;
 			
 			$scope.current_ticket.expires_on = new Date($scope.current_ticket.bought_on.getTime() + ticket.minutes * 60000);
 			
