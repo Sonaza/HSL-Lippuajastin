@@ -41,7 +41,7 @@ function parse_time_string(input_string)
 	if (time_parts.length !== 2)
 	{
 		const minute_offset = parseInt(input_string);
-		if (!isNaN(minute_offset) && minute_offset > -110)
+		if (!isNaN(minute_offset) && minute_offset > -110 && minute_offset < 1440)
 		{
 			return new Date(now.getTime() + minute_offset * 60 * 1000);
 		}
