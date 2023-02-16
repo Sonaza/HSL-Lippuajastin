@@ -35,21 +35,27 @@ function parse_time_string(input_string)
 	if (input_string === null)
 		return undefined;
 	
+	const now = new Date();
+	
 	const time_parts = input_string.split(/\.|:/);
 	if (time_parts.length !== 2)
 	{
 		const minute_offset = parseInt(input_string);
-		if (!isNaN(minute_offset))
+		if (!isNaN(minute_offset) && minute_offset > -110)
 		{
-			return new Date(new Date().getTime() + minute_offset * 60 * 1000);
+			return new Date(now.getTime() + minute_offset * 60 * 1000);
 		}
 		return undefined;
 	}
 	
 	const [hourStr, minuteStr] = time_parts;
+	if (!(hourStr.length != 1 || hourStr.length != 2) || minuteStr.length != 2)
+		return undefined;
+	
 	const hour = parseInt(hourStr);
 	const minute = parseInt(minuteStr);
-	const now = new Date();
+	if (isNaN(hour) || isNaN(minute))
+		return undefined;
 	
 	// Times given up to 110 minutes into the past are accepted but beyond that count as next day instead
 	const diff = (now.getTime() - new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, minute).getTime()) / 1000 / 60;
@@ -110,7 +116,7 @@ app.controller('MainController', async ($rootScope, $scope, $timeout, $interval,
 			timeStyle: 'short',
 		});
 		
-		const custom_start = prompt("Valitse lipun aloitusajankohta.\n\nSyötä aika muodossa HH.MM tai vaihtoehtoisesti erotus minuuteissa:", default_value);
+		const custom_start = prompt("Valitse lipun aloitusajankohta (käytä oletusta jättämällä tyhjäksi).\n\nSyötä aika muodossa HH.MM tai vaihtoehtoisesti erotus minuuteissa:", default_value);
 		$scope.current_ticket.custom_start = parse_time_string(custom_start);
 	}
 	
@@ -122,7 +128,7 @@ app.controller('MainController', async ($rootScope, $scope, $timeout, $interval,
 		const custom_start = $scope.current_ticket.custom_start.toLocaleTimeString("fi-FI", {
 			timeStyle: 'short',
 		});
-		return ' [klo {}]'.format(custom_start);
+		return '{}'.format(custom_start);
 	}
 	
 	$scope.restore_from_storage = () =>

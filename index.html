@@ -36,7 +36,12 @@
 					</div>
 				</div>
 				<div class="edit-ticket" ng-if="!current_ticket.changing_ticket">
-					<a ng-click="edit_start()">Muokkaa aloitusaikaa{{ current_custom_start() }}</a>
+					<a ng-click="edit_start()" ng-if="!current_ticket.custom_start">
+						Muokkaa aloitusaikaa
+					</a>
+					<a ng-click="edit_start()" ng-if="current_ticket.custom_start">
+						Aloitusaika klo {{ current_custom_start() }} (muokkaa)
+					</a>
 				</div>
 			</div>
 			
