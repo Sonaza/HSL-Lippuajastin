@@ -117,6 +117,11 @@ app.controller('MainController', async ($rootScope, $scope, $timeout, $interval,
 		});
 		
 		const custom_start = prompt("Valitse lipun aloitusajankohta (käytä oletusta jättämällä tyhjäksi).\n\nSyötä aika muodossa HH.MM tai vaihtoehtoisesti erotus minuuteissa:", default_value);
+		
+		// Keep default if nothing was changed and nothing was yet changed either
+		if ($scope.current_ticket.custom_start === undefined && custom_start == default_value)
+			return;
+		
 		$scope.current_ticket.custom_start = parse_time_string(custom_start);
 	}
 	
