@@ -1,0 +1,26 @@
+{
+	"name": "HSL Lippuajastin",
+	"short_name": "HSL Lippuajastin",
+	"description": "Ajastaa HSL Lippuja.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#007ac9",
+	"lang": "fi",
+	"icons": [
+		{
+			"src": "/img/favicon64.png",
+			"sizes": "64x64",
+			"type": "image/png"
+		},
+		{
+			"src": "/img/favicon128.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		},
+		{
+			"src": "/img/favicon256.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		}
+	]
+}

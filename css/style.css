@@ -1,0 +1,367 @@
+*
+{
+	box-sizing: border-box;
+}
+
+html, body
+{
+	margin: 0;
+	padding: 0;
+}
+
+html
+{
+	height: 100%;
+}
+
+body
+{
+	height: 100%;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 13pt;
+	background: #f2f5f7;
+	color: #000;
+	overflow-y: scroll;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	padding: 0 0 0.6rem 0;
+}
+
+h1 { font-size: 25pt; }
+h2 { font-size: 22pt; }
+h3 { font-size: 19pt; }
+h4 { font-size: 16pt; }
+h5 { font-size: 13pt; }
+h6 { font-size: 10pt; }
+
+p
+{
+	margin: 0;
+	padding: 0 0 0.8rem 0;
+}
+
+
+/**********************************/
+
+#main-wrapper
+{
+	width: 100%;
+	height: 100%;
+	min-width: 370px;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: stretch;
+}
+
+#header
+{
+	height: 100px;
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 700;
+	background: #007ac9;
+	color: #fff;
+	text-align: center;
+	font-size: 25pt;
+	padding: 1rem 0;
+	flex-grow: 0;
+	
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+#main-content
+{
+	flex-grow: 4;
+	max-width: 1000px;
+	width: 100%;
+	margin: 0 auto;
+	/*padding: 2rem 1rem 1rem 1rem;*/
+	
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#footer
+{
+	padding: 2rem 1rem;
+	flex-grow: 0;
+	color: #aaa;
+	background: #fff;
+	text-align: center;
+	border-top: 1px solid #ddd;
+}
+
+/**********************************/
+
+div.stage
+{
+	width: 100%;
+	text-align: center;
+	background: #fff;
+	padding: min(4rem, max(1.5rem, 5vmax)) 1rem;
+	margin: 0.3rem 0;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+h1
+{
+	padding-bottom: 1rem;
+}
+
+div.ticket-zones
+{
+	width: 350px;
+	display: flex;
+	flex-flow: column nowrap;
+	/*align-items: center;*/
+	/*justify-content: space-around;*/
+	/*gap: 0.5rem;*/
+	
+	border: 1px solid #e5e5e5;
+	border-radius: 10px;
+	
+	margin: 0 auto;
+	padding: 0.4rem;
+}
+
+div.ticket-zones div.ticket
+{
+	text-align: center;
+}
+
+div.ticket-zones div.ticket:nth-child(even)
+{
+	background: #f4f4f4;
+}
+div.ticket-zones div.ticket:nth-child(odd)
+{
+}
+
+div.ticket div.ticket-inner
+{
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	grid-template-rows: 1fr; 
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	
+	border: 2px solid transparent;
+	border-radius: 5px;
+	padding: 0.25rem 0.75rem;
+}
+
+div.stage.ticket-selection  div.ticket-inner
+{
+	cursor: pointer;
+}
+
+
+div.ticket.chosen-ticket div.ticket-inner
+{
+	border: 2px solid #F9B68A;
+	position: relative;
+	padding: 1rem 0.75rem 0.5rem 0.75rem;
+}
+
+div.ticket.chosen-ticket div.ticket-inner:after
+{
+	width: 100%;
+	position: absolute;
+	top: -0.5rem;
+	/*left: 0px;*/
+	text-align: center;
+	
+	content: 'Valittu';
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 700;
+	color: #0865A2;
+	text-shadow: -1px -1px #fff,
+				 -1px  0px #fff,
+				  0px -1px #fff,
+				  1px  0px #fff,
+				  1px  1px #fff,
+				  0px  1px #fff,
+				  0    1px 2px #0008
+				 ;
+}
+
+div.ticket-active div.ticket
+{
+	max-width: 380px;
+	margin: 0 auto;
+	cursor: auto;
+}
+
+div.stage.ticket-selection div.ticket:hover div.ticket-inner
+{
+	border: 2px solid #E2E2E2;
+}
+
+div.stage.ticket-selection div.ticket.chosen-ticket:hover div.ticket-inner
+{
+	border-color: #FE7B25;
+}
+
+div.ticket div.pill
+{
+	display: block;
+	width: fit-content;
+	align-self: center;
+	padding: 0.1rem 1rem 0.2rem 1rem;
+	border-radius: 100px;
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 700;
+	background: #007ac9;
+	color: #fff;
+	font-size: 25pt;
+	transition: all ease-out 60ms;
+	white-space: nowrap;
+}
+
+div.ticket-zones div.ticket:hover div.pill
+{
+	background: #106DA9;
+}
+
+div.ticket div.validity
+{
+	display: block;
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 500;
+	color: #000;
+	font-size: 16pt;
+	text-align: left;
+	padding-left: 1rem;
+	align-self: center;
+}
+
+div.ticket div.pill > span
+{
+	display: inline-block;
+	width: 2rem;
+}
+
+
+div.stage.ticket-selection div.ticket.ticket-BC div.pill,
+div.stage.ticket-selection div.ticket.ticket-BCD div.pill
+{
+	margin-left: 2rem;
+}
+
+div.stage.ticket-selection div.ticket.ticket-CD div.pill
+{
+	margin-left: 4rem;
+}
+
+div.stage.ticket-selection div.ticket.ticket-D div.pill
+{
+	margin-left: 6rem;
+}
+
+div.edit-ticket a
+{
+	display: inline-block;
+	padding: 1.5rem 0 0.2rem 0;
+}
+
+
+/***********************************************/
+
+div.stage.ticket-active div.ticket div.pill
+{
+	justify-self: center;
+}
+
+div.stage.ticket-active .hard-reset
+{
+	font-weight: 400;
+	font-size: 12pt;
+}
+
+/***********************************************/
+
+div.remaining-validity
+{
+	padding: 2rem 0 1rem 0;
+}
+
+div.remaining-validity p.time-remaining
+{
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-size: 20pt;
+	font-weight: 500;
+	padding: 0 0 1.2rem 0;
+}
+
+div.remaining-validity p.validity-ends
+{
+	font-size: 14pt;
+	padding: 0 0 2rem 0;
+}
+
+div.remaining-validity p.bought-on
+{
+	padding: 0 0 2rem 0;
+	color: #888;
+}
+
+div.remaining-validity p.bought-on-future
+{
+	padding: 0 0 2rem 0;
+	font-size: 14pt;
+}
+
+div.reset-ticket
+{
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 500;
+}
+
+div.reset-ticket button
+{
+	background: #007ac9;
+	font-size: 12pt;
+	color: #fff;
+	padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+	margin-left: 1rem;
+	border-radius: 100px;
+	border: 0;
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+
+div.reset-ticket button:hover
+{
+	background: #156AA1;
+}
+
+a, a:visited
+{
+	color: #156AA1;
+	text-decoration: none;
+	cursor: pointer;
+}
+a:hover, a:active
+{
+	color: #368CC4;
+	text-decoration: underline;
+}
+
+.ng-cloak
+{
+	display: none !important;
+}

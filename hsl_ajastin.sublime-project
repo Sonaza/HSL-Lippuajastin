@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+            [
+                "*.sqlite"
+            ],
+            "folder_exclude_patterns":
+            [
+                "wanha",
+                "js/vendor"
+            ],
+			"path": "."
+		}
+	],
+}
