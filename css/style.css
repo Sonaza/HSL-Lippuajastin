@@ -23,6 +23,8 @@ body
 	background: #f2f5f7;
 	color: #000;
 	overflow-y: scroll;
+	
+	user-select: none;
 }
 
 h1, h2, h3, h4, h5, h6
@@ -100,6 +102,130 @@ p
 	background: #fff;
 	text-align: center;
 	border-top: 1px solid #ddd;
+}
+
+/**********************************/
+
+#edit-dialog
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+  	background: #0004;
+  	
+  	display: grid;
+  	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	grid-column-gap: 0;
+	grid-row-gap: 0;
+	
+	z-index: 999999;
+}
+
+#edit-dialog .inner
+{
+	max-width: 400px;
+	
+	justify-self: center;
+	align-self: center;
+	
+	border: 1px solid #2E69B0;
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 0 30px #0006;
+	padding: 0;
+	overflow: hidden;
+}
+
+#edit-dialog h2
+{
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 500;
+	background: #007ac9;
+	color: #fff;
+	padding: 1rem 2rem;
+}
+
+#edit-dialog p
+{
+	padding: 1.5rem 2rem 0 2rem;
+}
+
+#edit-dialog .content
+{
+	display: grid;
+	grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+	grid-template-rows: repeat(2, 1fr);
+	grid-column-gap: 0.5rem;
+	grid-row-gap: 0.5rem;
+	padding: 2rem;
+}
+
+#edit-dialog .content > *
+{
+	height: 50px;
+}
+
+#edit-dialog .content > button
+{
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 500;
+	background: #007ac9;
+	color: #fff;
+	border: 1px solid #0365A4;
+	border-radius: 3px;
+	outline: none;
+	font-size: 13pt;
+}
+
+#edit-dialog .content > button:focus
+{
+	border: 3px solid #38A4EA;
+	box-shadow: 0 0 3px #9DD8FE;
+}
+
+#edit-dialog .content > button:active
+{
+	border: 2px solid #64E3D9;
+	box-shadow: 0 0 6px #9DD7FC;
+	background: #0368AA;
+	padding-top: 3px;
+}
+
+#edit-dialog .content > .decrease-button,
+#edit-dialog .content > .increase-button
+{
+	font-size: 60px;
+	line-height: 0;
+}
+
+#edit-dialog .content > .decrease-button,
+#edit-dialog .content > .increase-button,
+#edit-dialog .content > .current-value
+{
+	height: 60px;
+}
+
+#edit-dialog .content > .current-value
+{
+	grid-column: 2 / span 2;
+	font-family: 'Gotham XNarrow', sans-serif;
+	font-weight: 500;
+	color: #222;
+	font-size: 14pt;
+	text-align: center;
+}
+
+#edit-dialog .content > .cancel-button
+{
+	grid-column: 1 / span 2;
+}
+
+#edit-dialog .content > .save-button
+{
+	grid-column: 3 / span 2;
 }
 
 /**********************************/
