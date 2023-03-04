@@ -112,6 +112,14 @@ function handle_futurepast(new_date)
 	const max_ticket_duration = 110;
 	const ticket_deadline = new Date(now.getTime() - max_ticket_duration * 60 * 1000);
 	
+	console.log("date_wrapped", date_wrapped)
+	console.log("new_date", new_date)
+	console.log("ticket_deadline", ticket_deadline);
+	
+	if (new_date < ticket_deadline)
+	{
+	}
+	
 	if (date_wrapped > ticket_deadline)
 	{
 		return date_wrapped;
